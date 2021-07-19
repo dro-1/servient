@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {
+  useFonts,
+  NunitoSans_400Regular,
+  NunitoSans_800ExtraBold,
+} from "@expo-google-fonts/nunito-sans";
+import { ActivityIndicator, Colors } from "react-native-paper";
+import { ThemeProvider } from "styled-components";
+
+import { AuthScreen } from "./src/screens/auth.screen";
+import theme from "./src/theme";
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    NunitoSans_400Regular,
+    NunitoSans_800ExtraBold,
+  });
+
+  if (!fontsLoaded) {
+    return <ActivityIndicator animating={true} color={Colors.red800} />;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={theme}>
+      <AuthScreen />
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
