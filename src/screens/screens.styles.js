@@ -20,12 +20,12 @@ export const Title = styled.Text`
   color: ${({ color }) => (color ? color : "#fff")};
   font-size: ${({ size }) => (size ? size : "60")}px;
   text-align: ${({ center }) => (center ? "center" : "left")};
-  align-self: flex-start;
+  align-self: ${({ center }) => (center ? " center" : "flex-start")};
   margin-bottom: 15px;
 `;
 
 export const Caption = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
-  color: #fff;
-  font-size: 20px;
+  color: ${({ color }) => (color ? color : "#fff")};
+  font-size: ${({ size }) => (size ? size : "20")}px;
 `;
