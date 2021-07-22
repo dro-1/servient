@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 
-import { StatusBar } from "react-native";
+import { StatusBar, ScrollView } from "react-native";
 
 const SafeAreaContainer = styled.SafeAreaView`
   margin-top: ${StatusBar.currentHeight ? StatusBar.currentHeight : 0}px;
@@ -17,7 +17,8 @@ const SafeAreaContainer = styled.SafeAreaView`
 export const SafeArea = ({ children, color, top }) => {
   return (
     <SafeAreaContainer pTop={top} color={color}>
-      {children}
+      <ScrollView>{children}</ScrollView>
+      {/* {children} */}
     </SafeAreaContainer>
   );
 };

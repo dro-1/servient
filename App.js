@@ -7,21 +7,28 @@ import {
 import { ActivityIndicator, Colors } from "react-native-paper";
 import { ThemeProvider } from "styled-components";
 
-import { AuthScreen } from "./src/screens/auth.screen";
 import theme from "./src/theme";
+import { Navigator } from "./src/navigators";
+import { Text } from "react-native";
+import { Center } from "./src/components/center.component";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
     NunitoSans_400Regular,
     NunitoSans_800ExtraBold,
   });
-
   if (!fontsLoaded) {
-    return <ActivityIndicator animating={true} color={Colors.red800} />;
+    return (
+      <Center>
+        <ActivityIndicator animating={true} color={Colors.red800} />
+      </Center>
+    );
+    //return <Text style={{ paddingTop: 200 }}>Fonts not loaded</Text>;
   }
   return (
     <ThemeProvider theme={theme}>
-      <AuthScreen />
+      <Navigator />
     </ThemeProvider>
+    // <Text style={{ paddingTop: 200 }}>Hello World</Text>
   );
 }
