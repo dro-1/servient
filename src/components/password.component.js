@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/Entypo";
-import { TouchableOpacity } from "react-native";
 
 const Input = styled.TextInput`
   padding: 20px;
@@ -15,11 +14,6 @@ const Input = styled.TextInput`
 const ImageContainer = styled.TouchableOpacity`
   height: 30px;
   width: 10%;
-`;
-
-const Image = styled.Image`
-  height: 30px;
-  width: 100%;
 `;
 
 const Container = styled.View`

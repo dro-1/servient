@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components/native";
 
 const ImageI = styled.Image`
-  ${({ mWidth }) => `width: ${mWidth ? mWidth : 100}px;`}
+  ${({ mWidth, wRelative }) =>
+    `width: ${mWidth ? mWidth : 100}${wRelative ? "%" : "px"};`}
   ${({ mHeight }) => `height: ${mHeight ? mHeight : 100}px;`}
 `;
 

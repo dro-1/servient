@@ -10,15 +10,16 @@ export const Logo = styled.Image`
 export const Container = styled.View`
   padding: 30px;
   ${({ pTop }) => pTop && "padding-top: 100px;"}
-  width: 100%;
+  ${({ mBottom }) => mBottom && `margin-bottom: ${mBottom}px;`}
+  width: ${Dimensions.get("window").width}px;
   position: relative;
   height: ${Dimensions.get("window").height}px;
 `;
 export const Title = styled.Text`
   font-family: ${(props) => props.theme.fonts.heading};
-  color: #fff;
+  color: ${({ color }) => (color ? color : "#fff")};
   font-size: ${({ size }) => (size ? size : "60")}px;
-  text-align: left;
+  text-align: ${({ center }) => (center ? "center" : "left")};
   align-self: flex-start;
   margin-bottom: 15px;
 `;
