@@ -20,7 +20,8 @@ const Container = styled.View`
   padding: 0 20px;
   width: 100%;
   flex: 1;
-  ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight + 50}px`}
+  ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight + 50}px;`}
+  /* background-color: #000; */
 `;
 
 const LogoutContainer = styled.View`

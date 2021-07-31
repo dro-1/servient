@@ -6,7 +6,7 @@ import { SafeArea } from "../../components/safe-area.component";
 import { Container, Title } from "../screens.styles";
 import { Header } from "../../components/header.component";
 import { SearchBox } from "../../components/searchbox.component";
-import { Spacer } from "./../../components/spacer.component";
+import { Spacer } from "../../components/spacer.component";
 import { Category } from "../../components/category.component";
 
 const ImageBackground = styled.ImageBackground`
@@ -25,9 +25,10 @@ const Categories = styled.View`
 
 export const HomeScreen = ({ navigation }) => {
   const [searchText, setSearchText] = useState("");
+
   return (
     <SafeArea color="#fff">
-      <Container mBottom={50}>
+      <Container>
         <Header hamburgerPress={() => navigation.openDrawer()} />
         <Spacer top={20}>
           <SearchBox
@@ -60,6 +61,7 @@ export const HomeScreen = ({ navigation }) => {
           <Category
             title="Plumbing"
             source={require("./../../../assets/images/plumbing.png")}
+            onClick={() => navigation.navigate("Category")}
           />
           <Category
             title="House Keeping"

@@ -9,11 +9,15 @@ export const Logo = styled.Image`
 `;
 export const Container = styled.View`
   padding: 30px;
-  ${({ pTop }) => pTop && "padding-top: 100px;"}
-  ${({ mBottom }) => mBottom && `margin-bottom: ${mBottom}px;`}
-  width: ${Dimensions.get("window").width}px;
   position: relative;
-  height: ${Dimensions.get("window").height}px;
+  ${({ pTop }) => pTop && "padding-top: 100px;"}
+  ${({ mBottom }) =>
+    mBottom && `margin-bottom: ${mBottom}px;`}
+  width: ${Dimensions.get(
+    "window"
+  ).width}px;
+  position: relative;
+  /* height: ${Dimensions.get("window").height + 5}px; */
 `;
 export const Title = styled.Text`
   font-family: ${(props) => props.theme.fonts.heading};
@@ -21,11 +25,13 @@ export const Title = styled.Text`
   font-size: ${({ size }) => (size ? size : "60")}px;
   text-align: ${({ center }) => (center ? "center" : "left")};
   align-self: ${({ center }) => (center ? " center" : "flex-start")};
-  margin-bottom: 15px;
+  margin-bottom: ${({ mBottom }) => (mBottom ? mBottom : "15")}px;
 `;
 
 export const Caption = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
   color: ${({ color }) => (color ? color : "#fff")};
   font-size: ${({ size }) => (size ? size : "20")}px;
+  text-align: ${({ center }) => (center ? "center" : "left")};
+  align-self: ${({ center }) => (center ? " center" : "flex-start")};
 `;
