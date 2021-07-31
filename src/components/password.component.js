@@ -9,6 +9,7 @@ const Input = styled.TextInput`
   height: 70px;
   border-top-left-radius: 24px;
   border-bottom-left-radius: 24px;
+  font-family: ${(props) => props.theme.fonts.body};
 `;
 
 const ImageContainer = styled.TouchableOpacity`

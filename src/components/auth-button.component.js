@@ -5,7 +5,7 @@ import styled from "styled-components/native";
 
 import { Spacer } from "./spacer.component";
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
   position: relative;
   justify-content: center;
   align-items: center;
@@ -20,8 +20,6 @@ const IContainer = styled.View`
   flex: 1;
   z-index: 1;
   flex-direction: row;
-  position: absolute;
-  bottom: 100px;
 `;
 
 const Button = styled.TouchableOpacity`
@@ -31,9 +29,6 @@ const Button = styled.TouchableOpacity`
   align-items: center;
   border-radius: 10px;
   padding: 20px;
-  position: absolute;
-  bottom: 20px;
-  z-index: 2;
 `;
 
 const ButtonText = styled.Text`
@@ -54,25 +49,29 @@ export const AuthButton = ({ text, onPress, signup, signin }) => {
   return (
     <Container>
       {signin && (
-        <IContainer>
-          <Spacer right={5}>
-            <Text>Don’t have an account?</Text>
-          </Spacer>
-          <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-            <Text color="#fff">Sign up</Text>
-          </TouchableOpacity>
-        </IContainer>
+        <Spacer bottom={10}>
+          <IContainer>
+            <Spacer right={5}>
+              <Text>Don’t have an account?</Text>
+            </Spacer>
+            <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+              <Text color="#fff">Sign up</Text>
+            </TouchableOpacity>
+          </IContainer>
+        </Spacer>
       )}
 
       {signup && (
-        <IContainer>
-          <Spacer right={5}>
-            <Text> Already have an account?</Text>
-          </Spacer>
-          <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
-            <Text color="#fff">Sign in</Text>
-          </TouchableOpacity>
-        </IContainer>
+        <Spacer bottom={10}>
+          <IContainer>
+            <Spacer right={5}>
+              <Text> Already have an account?</Text>
+            </Spacer>
+            <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
+              <Text color="#fff">Sign in</Text>
+            </TouchableOpacity>
+          </IContainer>
+        </Spacer>
       )}
 
       <Button onPress={onPress}>

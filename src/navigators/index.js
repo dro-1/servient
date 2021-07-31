@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { AppNavigator } from "./app.navigator";
 import { AuthNavigator } from "./auth.navigator";
+import { UserProvider, useUserContext } from "../context/user.context";
 
 export const Navigator = () => {
-  const [userExist, setUserExist] = useState(true);
+  const { isSignedIn } = useUserContext();
+
+  useEffect(() => {
+    console.log(isSignedIn, "navig");
+  }, [isSignedIn]);
   return (
     <NavigationContainer>
-      {userExist ? <AppNavigator /> : <AuthNavigator />}
+      {isSignedIn ? <AppNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };

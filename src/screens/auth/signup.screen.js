@@ -21,6 +21,7 @@ const Input = styled.TextInput`
   border-radius: 24px;
   padding: 20px;
   color: #fff;
+  font-family: ${(props) => props.theme.fonts.body};
 `;
 
 export const SignUpScreen = ({ navigation }) => {
@@ -31,7 +32,7 @@ export const SignUpScreen = ({ navigation }) => {
   return (
     <SafeArea color="#121121">
       <Container>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={require("./../../../assets/images/arrow-back.png")} />
         </TouchableOpacity>
         <Spacer top={20} bottom={20}>
@@ -72,11 +73,13 @@ export const SignUpScreen = ({ navigation }) => {
             placeholder="Confirm Password"
           />
         </View>
-        <AuthButton
-          text="Sign Up"
-          onPress={() => navigation.navigate("Signin")}
-          signup
-        />
+        <Spacer top={50}>
+          <AuthButton
+            text="Sign Up"
+            onPress={() => navigation.navigate("Signin")}
+            signup
+          />
+        </Spacer>
       </Container>
     </SafeArea>
   );

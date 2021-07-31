@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
@@ -7,6 +7,7 @@ import { AuthButton } from "../../components/auth-button.component";
 import { Container, Title, Caption } from "../screens.styles";
 import { Spacer } from "../../components/spacer.component";
 import { PasswordInput } from "../../components/password.component";
+import { useUserContext } from "../../context/user.context";
 
 const Image = styled.Image`
   width: 30px;
@@ -21,15 +22,19 @@ const Input = styled.TextInput`
   border-radius: 24px;
   padding: 20px;
   color: #fff;
+  font-family: ${(props) => props.theme.fonts.body};
 `;
 
 export const SignInScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setIsSignedIn } = useUserContext();
+
   return (
     <SafeArea color="#121121">
       <Container>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={require("./../../../assets/images/arrow-back.png")} />
         </TouchableOpacity>
         <Spacer top={20}>
@@ -53,11 +58,13 @@ export const SignInScreen = ({ navigation }) => {
           placeholder="Password"
           placeholderTextColor="#595959"
         />
-        <AuthButton
-          text="Sign In"
-          onPress={() => navigation.navigate("Signin")}
-          signin
-        />
+        <Spacer top={250}>
+          <AuthButton
+            text="Sign In"
+            onPress={() => setIsSignedIn(true)}
+            signin
+          />
+        </Spacer>
       </Container>
     </SafeArea>
   );

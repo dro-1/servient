@@ -185,8 +185,7 @@ export const LaundryScreen = ({ navigation }) => {
             </Button2>
           </Spacer>
           <Caption size={15} center color="#000">
-            {" "}
-            35 off Acru chin, tenala drive
+            14, Aina Street, Ebute Meta, Lagos
           </Caption>
         </View>
         <View
@@ -226,7 +225,7 @@ export const LaundryScreen = ({ navigation }) => {
           </Caption>
         </View>
         <Spacer top={20}>
-          <BookButton>
+          <BookButton onPress={() => navigation.navigate("Confirm")}>
             <Title mBottom="0" color="#fff" size={20}>
               Book
             </Title>

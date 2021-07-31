@@ -39,7 +39,7 @@ export const HomeScreen = ({ navigation }) => {
         </Spacer>
         <Spacer top={10}>
           <Title size={30} color="#000">
-            Hi Babara
+            Hi Seun
           </Title>
         </Spacer>
         <ImageBackground
